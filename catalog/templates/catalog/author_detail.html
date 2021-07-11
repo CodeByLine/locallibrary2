@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1 class="pb-3"> <a href="">{{ author }}</a></h1>
+
+  <p><strong>Author:</strong> <a href="">{{ author.first_name }} {{ author.last_name }}</a></p> <!-- author detail link not yet defined -->
+  <p><strong>Born:</strong> {{ author.date_of_birth }}<br>
+  <strong>Died:</strong> {{ author.date_of_death }}</p>
+  
+
+  <div style="margin-top:20px">
+    
+    <h4 class="py-3">Books by {{ author.last_name }}</h4>
+
+    {% if author_books %}
+    
+      {% for book in author_books %}
+
+      {{ book.title }}<br>
+      {% endfor %}
+    {% endif %}
+    
+  
+    
+  </div>
+{% endblock %}
